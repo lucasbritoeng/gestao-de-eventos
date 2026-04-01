@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontro Kids</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-base-200 h-screen flex overflow-hidden">
+
+    <aside class="bg-neutral text-neutral-content w-64 p-4 flex flex-col justify-between shrink-0 shadow-lg">
+        <div>
+            <div class="text-2xl font-bold text-center mb-6">Seja bem vindo!</div>
+            <ul class="menu text-xl bg-base-100/10 rounded-box w-full gap-2">
+                <li><a href="index.html" class="active bg-primary text-white">Página inicial</a></li>
+                <li><a href="criancas.html">Crianças</a></li>
+                <li><a href="lideres.html">Líderes</a></li>
+                <li><a href="quartos.html">Quartos</a></li>
+                <li><a href="equipes.html">Equipes</a></li>
+                <li><a href="atividades.html">Atividades</a></li>
+            </ul>
+        </div>
+        <div class="text-center mt-auto">
+            <div class="divider divider-neutral">Endereço</div>
+            <button class="btn btn-outline btn-sm btn-block text-neutral-content mb-2 h-14"
+                onclick="window.open('http://maps.google.com', '_blank');">
+                Rua dos Dados, 100 <br>Jardim dos Dados
+            </button>
+            <span class="text-xs opacity-50">2026</span>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col overflow-hidden">
+
+        <header class="navbar bg-base-100 shadow-sm px-6 shrink-0">
+            <div class="flex-1">
+                <h1 class="text-2xl font-bold text-primary">Encontro Kids</h1>
+            </div>
+            <div class="flex-none text-base">
+                Lucas, permissão: <span class="badge badge-error badge-outline ml-2 font-bold p-3">ADMINISTRADOR</span>
+            </div>
+        </header>
+
+        <main class="p-6 flex-1 overflow-y-auto">
+
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold">Visão Geral do Evento</h2>
+                <button class="btn btn-neutral text-base">📄 Exportar Relatório Geral</button>
+            </div>
+
+            <div class="stats shadow w-full mb-8">
+                <div class="stat place-items-center">
+                    <div class="stat-title">Crianças</div>
+                    <div class="stat-value text-primary">100</div>
+                </div>
+                <div class="stat place-items-center">
+                    <div class="stat-title">Líderes</div>
+                    <div class="stat-value">24</div>
+                </div>
+                <div class="stat place-items-center">
+                    <div class="stat-title">Quartos</div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-desc text-sm mt-2">
+                        <span class="font-bold text-blue-500">6 Masc</span> / <span class="font-bold text-pink-500">6
+                            Fem</span>
+                    </div>
+                </div>
+                <div class="stat place-items-center">
+                    <div class="stat-title">Equipes</div>
+                    <div class="stat-value">7</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+
+                <div class="card bg-base-100 shadow-xl border border-base-200">
+                    <div class="card-body">
+                        <h3 class="card-title text-lg mb-4">Panorama das Crianças</h3>
+                        <div class="flex flex-col sm:flex-row gap-6 items-center">
+                            <div class="w-full sm:w-1/2 text-center">
+                                <div class="h-40 mx-auto">
+                                    <canvas id="genderChart"></canvas>
+                                </div>
+                                <div class="flex justify-center gap-4 mt-4 text-base">
+                                    <span class="font-bold text-blue-500">50 Meninos</span>
+                                    <span class="font-bold text-pink-500">50 Meninas</span>
+                                </div>
+                            </div>
+                            <div class="w-full sm:w-1/2">
+                                <p class="text-sm font-bold text-gray-500 uppercase">Top 5 Núcleos</p>
+                                <ul class="text-base mt-2 space-y-2">
+                                    <li class="flex justify-between border-b pb-1"><span>1. Central</span> <span
+                                            class="font-bold">40</span></li>
+                                    <li class="flex justify-between border-b pb-1"><span>2. Nova Jerusalém</span> <span
+                                            class="font-bold">20</span></li>
+                                    <li class="flex justify-between border-b pb-1"><span>3. Tancredo Neves</span> <span
+                                            class="font-bold">19</span></li>
+                                    <li class="flex justify-between border-b pb-1"><span>4. Vila Vargas</span> <span
+                                            class="font-bold">15</span></li>
+                                    <li class="flex justify-between border-b pb-1"><span>5. Monte Castelo</span> <span
+                                            class="font-bold">6</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl border border-base-200">
+                    <div class="card-body">
+                        <h3 class="card-title text-lg mb-4">Status da Organização</h3>
+
+                        <p class="text-sm font-bold text-gray-500 uppercase mb-2">Composição das Equipes</p>
+                        <div class="flex gap-4 text-base mb-4">
+                            <span class="badge badge-info gap-2 font-bold p-3">2 Meninos</span>
+                            <span class="badge badge-secondary gap-2 font-bold p-3">2 Meninas</span>
+                            <span class="badge badge-neutral gap-2 font-bold p-3">3 Mistas</span>
+                        </div>
+
+                        <div class="divider mt-0 mb-2"></div>
+
+                        <p class="text-sm font-bold text-gray-500 uppercase mb-2">Ocupação das Equipes</p>
+                        <div class="space-y-4 max-h-40 overflow-y-auto pr-2">
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-1">
+                                    <span>Equipe Azul</span><span>18 / 20</span>
+                                </div>
+                                <progress class="progress progress-info w-full" value="90" max="100"></progress>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-1">
+                                    <span>Equipe Vermelha</span><span>12 / 20</span>
+                                </div>
+                                <progress class="progress progress-error w-full" value="60" max="100"></progress>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-1">
+                                    <span>Equipe Verde</span><span>20 / 20</span>
+                                </div>
+                                <progress class="progress progress-success w-full" value="100" max="100"></progress>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-1">
+                                    <span>Equipe Amarela</span><span>8 / 20</span>
+                                </div>
+                                <progress class="progress progress-warning w-full" value="40" max="100"></progress>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Script para inicializar o gráfico de pizza (Mantido igual)
+        const ctx = document.getElementById('genderChart');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Meninos', 'Meninas'],
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#3b82f6', '#ec4899'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                cutout: '75%'
+            }
+        });
+    </script>
+</body>
+
+</html>

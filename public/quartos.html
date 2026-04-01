@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quartos - Kids</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-base-200 h-screen flex overflow-hidden">
+
+    <aside class="bg-neutral text-neutral-content w-64 p-4 flex flex-col justify-between shrink-0 shadow-lg z-20">
+        <div>
+            <div class="text-2xl font-bold text-center mb-6">Seja bem vindo!</div>
+            <ul class="menu text-xl bg-base-100/10 rounded-box w-full gap-2">
+                <li><a href="index.html">Página inicial</a></li>
+                <li><a href="criancas.html">Crianças</a></li>
+                <li><a href="lideres.html">Líderes</a></li>
+                <li><a href="quartos.html" class="active bg-primary text-white">Quartos</a></li>
+                <li><a href="equipes.html">Equipes</a></li>
+                <li><a href="atividades.html">Atividades</a></li>
+            </ul>
+        </div>
+        <div class="text-center mt-auto">
+            <div class="divider divider-neutral">Endereço</div>
+            <button class="btn btn-outline btn-sm btn-block text-neutral-content mb-2 h-14"
+                onclick="window.open('http://maps.google.com', '_blank');">
+                Rua dos Dados, 100 <br>Jardim dos Dados
+            </button>
+            <span class="text-xs opacity-50">2026</span>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col overflow-hidden relative">
+
+        <header class="navbar bg-base-100 shadow-sm px-6 shrink-0 z-10">
+            <div class="flex-1 items-center gap-4">
+                <h1 class="text-2xl font-bold text-primary">Quartos</h1>
+                <div class="badge badge-neutral">12 cadastrados</div>
+            </div>
+            <div class="flex-none text-base">
+                Lucas, permissão: <span class="badge badge-error badge-outline ml-2 font-bold p-3">ADMINISTRADOR</span>
+            </div>
+        </header>
+
+        <section
+            class="bg-base-100 p-4 border-b border-base-200 flex flex-wrap justify-between items-center gap-4 shrink-0 z-10">
+
+            <div class="join w-full md:w-auto flex-1 max-w-2xl">
+                <input class="input input-bordered join-item w-full" placeholder="🔍 Procurar quarto..." />
+                <select class="select select-bordered join-item w-44">
+                    <option disabled selected>Filtro</option>
+                    <option>ID/Nº</option>
+                    <option>Nome</option>
+                    <option>Capacidade</option>
+                    <option>Sexo</option>
+                </select>
+                <button class="btn btn-neutral join-item">Buscar</button>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button class="btn btn-outline">📄 Exportar Relatório Geral</button>
+            </div>
+        </section>
+
+        <main class="flex-1 overflow-x-auto overflow-y-auto bg-base-100 relative">
+
+            <table class="table table-zebra w-full table-pin-rows">
+                <thead>
+                    <tr class="bg-base-300 text-neutral text-sm">
+                        <th class="w-[5%]"><label><input type="checkbox" id="select-all-checkbox"
+                                    class="checkbox checkbox-sm" /></label></th>
+                        <th class="w-[10%]">ID/Nº</th>
+                        <th>Nome</th>
+                        <th class="w-[20%]">Ocupação</th>
+                        <th class="w-[20%]">Sexo</th>
+                        <th class="text-center w-[15%]">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><label><input type="checkbox" class="checkbox checkbox-sm row-checkbox" /></label></th>
+                        <td class="font-bold text-base">1</td>
+                        <td>
+                            <div class="font-bold text-base">Quarto 01</div>
+                        </td>
+                        <td>
+                            <div class="flex flex-col gap-1 w-full max-w-xs">
+                                <div class="text-sm font-bold opacity-70">18 / 25</div>
+                                <progress class="progress progress-info w-full" value="72" max="100"></progress>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="badge badge-info gap-2 font-bold p-3">Masculino</div>
+                        </td>
+                        <td>
+                            <div class="flex items-center justify-center gap-1">
+                                <div class="tooltip" data-tip="Editar">
+                                    <a href="editar_quarto.php?id=1" class="btn btn-sm btn-ghost text-primary">✏️</a>
+                                </div>
+                                <div class="tooltip" data-tip="Gerar Lista">
+                                    <a href="lista_quarto.php?id=1" class="btn btn-sm btn-ghost text-neutral">📋</a>
+                                </div>
+                                <div class="tooltip tooltip-error" data-tip="Excluir">
+                                    <a href="excluir_quarto.php?id=1" class="btn btn-sm btn-ghost text-error"
+                                        onclick="return confirm('Tem certeza que deseja excluir este quarto?');">🗑️</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th><label><input type="checkbox" class="checkbox checkbox-sm row-checkbox" /></label></th>
+                        <td class="font-bold text-base">2</td>
+                        <td>
+                            <div class="font-bold text-base">Quarto 02 <span
+                                    class="text-sm font-normal opacity-60 ml-2">(Princesas do Rei)</span></div>
+                        </td>
+                        <td>
+                            <div class="flex flex-col gap-1 w-full max-w-xs">
+                                <div class="text-sm font-bold opacity-70">07 / 25</div>
+                                <progress class="progress progress-secondary w-full" value="28" max="100"></progress>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="badge badge-secondary gap-2 font-bold p-3">Feminino</div>
+                        </td>
+                        <td>
+                            <div class="flex items-center justify-center gap-1">
+                                <div class="tooltip" data-tip="Editar">
+                                    <a href="editar_quarto.php?id=2" class="btn btn-sm btn-ghost text-primary">✏️</a>
+                                </div>
+                                <div class="tooltip" data-tip="Gerar Lista">
+                                    <a href="lista_quarto.php?id=2" class="btn btn-sm btn-ghost text-neutral">📋</a>
+                                </div>
+                                <div class="tooltip tooltip-error" data-tip="Excluir">
+                                    <a href="excluir_quarto.php?id=2" class="btn btn-sm btn-ghost text-error"
+                                        onclick="return confirm('Tem certeza que deseja excluir este quarto?');">🗑️</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <div class="tooltip tooltip-left fixed bottom-8 right-8 z-50" data-tip="Adicionar Quarto">
+            <a href="#" class="btn btn-error btn-circle btn-lg shadow-xl text-white flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                    stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Notyf (Avisos de Sucesso/Erro)
+            const notyf = new Notyf({ duration: 5000, position: { x: 'right', y: 'top' }, types: [{ type: 'success', background: '#34D399', icon: { className: 'notyf__icon--success', tagName: 'i' } }, { type: 'error', background: '#F87171', icon: { className: 'notyf__icon--error', tagName: 'i' } }] });
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+
+            if (status === 'cadastrado') { notyf.success('Quarto cadastrado com sucesso!'); }
+            else if (status === 'editado') { notyf.success('Informações atualizadas com sucesso!'); }
+            else if (status === 'excluido') { notyf.success('Quarto removido do sistema.'); }
+            else if (status === 'erro') { notyf.error('Ocorreu um erro.'); }
+
+            // Lógica do Checkbox
+            const selectAllCheckbox = document.getElementById('select-all-checkbox');
+            const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+
+            if (selectAllCheckbox) {
+                selectAllCheckbox.addEventListener('change', function () {
+                    rowCheckboxes.forEach(cb => cb.checked = this.checked);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

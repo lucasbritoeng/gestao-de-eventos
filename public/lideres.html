@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Líderes - Kids</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-base-200 h-screen flex overflow-hidden">
+
+    <aside class="bg-neutral text-neutral-content w-64 p-4 flex flex-col justify-between shrink-0 shadow-lg z-20">
+        <div>
+            <div class="text-2xl font-bold text-center mb-6">Seja bem vindo!</div>
+            <ul class="menu text-xl bg-base-100/10 rounded-box w-full gap-2">
+                <li><a href="index.html">Página inicial</a></li>
+                <li><a href="criancas.html">Crianças</a></li>
+                <li><a href="lideres.html" class="active bg-primary text-white">Líderes</a></li>
+                <li><a href="quartos.html">Quartos</a></li>
+                <li><a href="equipes.html">Equipes</a></li>
+                <li><a href="atividades.html">Atividades</a></li>
+            </ul>
+        </div>
+        <div class="text-center mt-auto">
+            <div class="divider divider-neutral">Endereço</div>
+            <button class="btn btn-outline btn-sm btn-block text-neutral-content mb-2 h-14"
+                onclick="window.open('http://maps.google.com', '_blank');">
+                Rua dos Dados, 100 <br>Jardim dos Dados
+            </button>
+            <span class="text-xs opacity-50">2026</span>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col overflow-hidden relative">
+
+        <header class="navbar bg-base-100 shadow-sm px-6 shrink-0 z-10">
+            <div class="flex-1 items-center gap-4">
+                <h1 class="text-2xl font-bold text-primary">Líderes</h1>
+                <div class="badge badge-neutral">3 líderes (1 par) cadastrados</div>
+            </div>
+            <div class="flex-none text-base">
+                Lucas, permissão: <span class="badge badge-error badge-outline ml-2 font-bold p-3">ADMINISTRADOR</span>
+            </div>
+        </header>
+
+        <section
+            class="bg-base-100 p-4 border-b border-base-200 flex flex-wrap justify-between items-center gap-4 shrink-0 z-10">
+
+            <div class="join w-full md:w-auto flex-1 max-w-2xl">
+                <input class="input input-bordered join-item w-full" placeholder="🔍 Procurar líder..." />
+                <select class="select select-bordered join-item w-44">
+                    <option disabled selected>Filtro</option>
+                    <option>ID</option>
+                    <option>Nome</option>
+                    <option>Núcleo</option>
+                    <option>Equipe</option>
+                    <option>Quarto</option>
+                </select>
+                <button class="btn btn-neutral join-item">Buscar</button>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-outline">Mais Ações ⚙️</div>
+                    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a onclick="cracha_lider_modal.showModal()">🪪 Gerar Crachás</a></li>
+                        <li><a href="#">📄 Exportar Relatório</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <main class="flex-1 overflow-x-auto overflow-y-auto bg-base-100 relative">
+
+            <table class="table table-zebra w-full table-pin-rows">
+                <thead>
+                    <tr class="bg-base-300 text-neutral text-sm">
+                        <th class="w-[5%]"><label><input type="checkbox" id="select-all-checkbox"
+                                    class="checkbox checkbox-sm" /></label></th>
+                        <th class="w-[5%]">ID</th>
+                        <th class="w-[30%]">Líder(es) Designado(s)</th>
+                        <th>Núcleo</th>
+                        <th>Equipe</th>
+                        <th class="text-center w-[15%]">Quarto</th>
+                        <th class="text-center w-[12%]">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><label><input type="checkbox" class="checkbox checkbox-sm row-checkbox" /></label></th>
+                        <td class="font-bold">1</td>
+                        <td>
+                            <div class="font-bold text-base">Fred Frazzito</div>
+                            <div class="text-sm opacity-60">Parceiro(a): Lucas Brito</div>
+                        </td>
+                        <td>Iderp Central</td>
+                        <td>
+                            <div class="badge badge-info gap-2 font-bold p-3">Equipe Azul</div>
+                        </td>
+                        <td class="text-center">Quarto 1 (Masc)</td>
+                        <td>
+                            <div class="flex items-center justify-center gap-1">
+                                <div class="tooltip" data-tip="Editar"><a href="#?id=1"
+                                        class="btn btn-sm btn-ghost text-primary">✏️</a></div>
+                                <div class="tooltip" data-tip="Gerar Crachá"><a href="#"
+                                        class="btn btn-sm btn-ghost text-neutral">🪪</a></div>
+                                <div class="tooltip tooltip-error" data-tip="Excluir"><a href="#"
+                                        class="btn btn-sm btn-ghost text-error"
+                                        onclick="return confirm('Excluir este par?');">🗑️</a></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th><label><input type="checkbox" class="checkbox checkbox-sm row-checkbox" /></label></th>
+                        <td class="font-bold">2</td>
+                        <td>
+                            <div class="font-bold text-base">Cáritas Frazzito</div>
+                            <div class="text-sm opacity-60">Parceiro(a): Amanda Frazzito</div>
+                        </td>
+                        <td>Iderp Central</td>
+                        <td>
+                            <div class="badge badge-secondary gap-2 font-bold p-3">Equipe Rosa</div>
+                        </td>
+                        <td class="text-center">Quarto 2 (Fem)</td>
+                        <td>
+                            <div class="flex items-center justify-center gap-1">
+                                <div class="tooltip" data-tip="Editar"><a href="editar_lider.php?id=2"
+                                        class="btn btn-sm btn-ghost text-primary">✏️</a></div>
+                                <div class="tooltip" data-tip="Gerar Crachá"><a href="#"
+                                        class="btn btn-sm btn-ghost text-neutral">🪪</a></div>
+                                <div class="tooltip tooltip-error" data-tip="Excluir"><a href="#"
+                                        class="btn btn-sm btn-ghost text-error"
+                                        onclick="return confirm('Excluir este par?');">🗑️</a></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th><label><input type="checkbox" class="checkbox checkbox-sm row-checkbox" /></label></th>
+                        <td class="font-bold">3</td>
+                        <td>
+                            <div class="font-bold text-base">Maria da Silva</div>
+                            <div class="text-sm opacity-50 italic">Sem parceiro(a) vinculado</div>
+                        </td>
+                        <td>Iderp Central</td>
+                        <td>
+                            <div class="badge bg-violet-200 text-violet-800 border-transparent gap-2 font-bold p-3">
+                                Equipe Violeta</div>
+                        </td>
+                        <td class="text-center">Quarto 2 (Fem)</td>
+                        <td>
+                            <div class="flex items-center justify-center gap-1">
+                                <div class="tooltip" data-tip="Editar"><a href="editar_lider.php?id=3"
+                                        class="btn btn-sm btn-ghost text-primary">✏️</a></div>
+                                <div class="tooltip" data-tip="Gerar Crachá"><a href="#"
+                                        class="btn btn-sm btn-ghost text-neutral">🪪</a></div>
+                                <div class="tooltip tooltip-error" data-tip="Excluir"><a href="#"
+                                        class="btn btn-sm btn-ghost text-error"
+                                        onclick="return confirm('Excluir este líder?');">🗑️</a></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <div class="tooltip tooltip-left fixed bottom-8 right-8 z-50" data-tip="Adicionar Líder(es)">
+            <a href="#" class="btn btn-error btn-circle btn-lg shadow-xl text-white flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                    stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <dialog id="cracha_lider_modal" class="modal">
+        <div class="modal-box max-w-lg">
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+
+            <h3 class="font-bold text-lg mb-2">Gerar Crachás de Líderes</h3>
+            <p class="text-sm text-gray-500 mb-4">Escolha quais crachás você deseja gerar:</p>
+
+            <div class="space-y-3">
+                <label
+                    class="label cursor-pointer justify-start gap-4 p-4 border rounded-lg bg-base-100 hover:bg-base-200 transition-colors">
+                    <input type="radio" name="cracha-option" value="pendentes" class="radio radio-primary" checked />
+                    <span class="label-text">
+                        <strong class="block text-base text-neutral">Crachás Pendentes</strong>
+                        <span class="text-xs text-gray-500">Gera novos e atualizados. (2 pendentes)</span>
+                    </span>
+                </label>
+
+                <label
+                    class="label cursor-pointer justify-start gap-4 p-4 border rounded-lg bg-base-100 hover:bg-base-200 transition-colors">
+                    <input type="radio" name="cracha-option" value="selecionados" id="option-selecionados"
+                        class="radio radio-primary" />
+                    <span class="label-text">
+                        <strong class="block text-base text-neutral">Gerar Apenas Selecionados</strong>
+                        <span class="text-xs text-gray-500">Apenas marcados na tabela. (<span id="count-selecionados"
+                                class="font-bold text-primary">0</span> selecionados)</span>
+                    </span>
+                </label>
+
+                <label
+                    class="label cursor-pointer justify-start gap-4 p-4 border rounded-lg bg-base-100 hover:bg-base-200 transition-colors">
+                    <input type="radio" name="cracha-option" value="todos" class="radio radio-primary" />
+                    <span class="label-text">
+                        <strong class="block text-base text-neutral">Gerar TODOS os Crachás</strong>
+                        <span class="text-xs text-gray-500">Gera novamente todos os 24 crachás de líderes.</span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="modal-action mt-6">
+                <form method="dialog">
+                    <button class="btn btn-ghost">Cancelar</button>
+                </form>
+                <button id="generate-pdf-btn" class="btn btn-error text-white">Gerar PDF</button>
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // 1. Notyf (Avisos de Sucesso/Erro)
+            const notyf = new Notyf({ duration: 5000, position: { x: 'right', y: 'top' }, types: [{ type: 'success', background: '#34D399', icon: { className: 'notyf__icon--success', tagName: 'i' } }, { type: 'error', background: '#F87171', icon: { className: 'notyf__icon--error', tagName: 'i' } }] });
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            if (status === 'cadastrado') { notyf.success('Líder(es) cadastrado(s) com sucesso!'); }
+            else if (status === 'editado') { notyf.success('Informações atualizadas com sucesso!'); }
+            else if (status === 'excluido') { notyf.success('Líder(es) removido(s) do sistema.'); }
+            else if (status === 'erro') { notyf.error('Ocorreu um erro.'); }
+
+            // 2. Lógica do Checkbox
+            const selectAllCheckbox = document.getElementById('select-all-checkbox');
+            const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+            const countSelecionadosSpan = document.getElementById('count-selecionados');
+            const optionSelecionadosRadio = document.getElementById('option-selecionados');
+
+            function updateSelectedCount() {
+                const selectedCount = document.querySelectorAll('.row-checkbox:checked').length;
+                if (countSelecionadosSpan) countSelecionadosSpan.textContent = selectedCount;
+                if (optionSelecionadosRadio) optionSelecionadosRadio.disabled = selectedCount === 0;
+            }
+
+            if (selectAllCheckbox) {
+                selectAllCheckbox.addEventListener('change', function () {
+                    rowCheckboxes.forEach(cb => cb.checked = this.checked);
+                    updateSelectedCount();
+                });
+            }
+            rowCheckboxes.forEach(cb => cb.addEventListener('change', updateSelectedCount));
+            updateSelectedCount();
+
+            // 3. Botão Gerar PDF
+            const generatePdfBtn = document.getElementById('generate-pdf-btn');
+            if (generatePdfBtn) {
+                generatePdfBtn.addEventListener('click', function () {
+                    const selectedOption = document.querySelector('input[name="cracha-option"]:checked');
+                    if (selectedOption) {
+                        alert('Gerando PDF para líderes: ' + selectedOption.value);
+                        document.getElementById('cracha_lider_modal').close();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
